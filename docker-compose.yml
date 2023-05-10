@@ -22,6 +22,6 @@ services:
       WORDPRESS_DB_PASSWORD: senha do banco
       WORDPRESS_DB_NAME: nome do banco
     volumes:
-      ["/var/www/html:/var/www/html"]
+      ["mnt/docker/docker:/var/www/html"]
 volumes:
   mysql: {}
