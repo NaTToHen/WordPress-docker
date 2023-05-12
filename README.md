@@ -32,6 +32,10 @@ sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,ret
 
 Para a montagem automática após reinicio foi inserida uma entrada no arquivo: `/etc/fstab`.
 
+```
+<dns do efs>:/ mnt/docker/ nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport 0 0
+```
+
 **docker e docker-compose**
 
 O serviço WordPress é implementado em um container docker. O container foi criado a partir de um docker-compose facilitando a sua inicialização.
