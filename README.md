@@ -77,6 +77,33 @@ O arquivo do docker-compose executa as seguintes etapas:
 - Criação do container WordPress
 - Espelhamento dos sistemas de arquivo
 
+## VPC e Security Groups
+
+A VPC possui dois ranges de CIDR diferentes  
 
 
+10.1.96.0/24: subnets públicas  
+10.1.0.0/24: subnets privadas
+
+
+O VPC foi criado  com duas subnets privadas e duas subnets públicas, uma em cada Zona de Disponibilidade.  
+- Foi criado e associado um Internet Gateway à rota publica para liberar comunicação com a Internet
+- Foi criado um NAT Gateway com um Elastic IP alocado, e associado á rota privada, associando também a uma subnet publica a fim de garantir tráfego de Internet às subnets privadas.
+
+
+Em Route tables:
+- Foram criadas duas Route Tables, uma pública e uma privada.
+- Na Route Table pública foi criada uma rota para a Internet (0.0.0.0/0) associada ao Internet Gateway. Foram associadas a ela as duas subnets públicas.
+- Na Route Table privada foi criada uma rota para a Internet (0.0.0.0/0) associada ao NAT Gateway. Foram associadas a ela as duas subnets privadas.
+
+
+**Security Groups**  
+Optei por utilizar somente um Security Group abrindo as seguintes portas:  
+| serviço |  | porta | ip liberado |
+|--- |--- |--- |--- |
+| MYSQL/Aurora | TCP | 3306 | 0.0.0.0/0 |
+| HTTPS | TCP | 443 |	0.0.0.0/0 |
+| HTTP | TCP | 80 | 0.0.0.0/0 |
+| NFS | TCP | 2049 | 0.0.0.0/0 |
+| SSH	| TCP	| 22 | 0.0.0.0/0 |
 
