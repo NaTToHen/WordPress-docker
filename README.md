@@ -107,3 +107,12 @@ Optei por utilizar somente um Security Group abrindo as seguintes portas:
 | NFS | TCP | 2049 | 0.0.0.0/0 |
 | SSH	| TCP	| 22 | 0.0.0.0/0 |
 
+## RDS (Relational Database Service)
+
+- Configuração do banco de dados MySql:
+
+  - instância db.t3.micro
+  - MySql
+  - ram: 1 GB
+  - Armazenamento: 20 GiB (gp2)
+
