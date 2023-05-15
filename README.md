@@ -109,10 +109,10 @@ Optei por utilizar somente um Security Group abrindo as seguintes portas:
 
 ## RDS (Relational Database Service)
 
-- Configuração do banco de dados MySql:
+Configuração do banco de dados MySql:
 
-  - instância db.t3.micro
-  - MySql
-  - ram: 1 GB
-  - Armazenamento: 20 GiB (gp2)
+- instância db.t3.micro
+- MySql
+- ram: 1 GB
+- Armazenamento: 20 GiB (gp2)
 
