@@ -116,3 +116,11 @@ Configuração do banco de dados MySql:
 - ram: 1 GB
 - Armazenamento: 20 GiB (gp2)
 
+## Load Balance e Auto Scaling
+
+Como cada instância contendo o serviço WordPress possui um conecção privada, foi então criado um Load Balance para assim fazer a conecção com a Internet. O tipo utilizado foi o Aplication Load Balance, focado em aplicações viradas para a internet.
+
+
+
+
+
