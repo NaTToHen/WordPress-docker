@@ -118,9 +118,20 @@ Configuração do banco de dados MySql:
 
 ## Load Balance e Auto Scaling
 
-Como cada instância contendo o serviço WordPress possui um conecção privada, foi então criado um Load Balance para assim fazer a conecção com a Internet. O tipo utilizado foi o Aplication Load Balance, focado em aplicações viradas para a internet.
+Como cada instância contendo o serviço WordPress possui um conecção privada, foi então criado um Load Balance para assim fazer a conecção com a Internet. O tipo utilizado foi o Aplication Load Balance, focado em aplicações viradas para a internet. Também utiliza um target group para verificar a integridade da conecção com a internet, o protocolo utilizado foi o HTTP na porta 80.
 
+Availability Zones:
+- us-east-1b
+- us-east-1a
 
+**Auto Scaling**
 
+O Auto Scaling foi configurado da seguinte forma:
+- Instancias minimas: 1
+- Instancias maximas: 2
+- Efetuar o escalonamento ao atingir 50% do processamento máximo
+- Launch configuration
+  - A partir de uma AMI pré configurada
+  - Tipo da Instância: t2.micro
 
 
