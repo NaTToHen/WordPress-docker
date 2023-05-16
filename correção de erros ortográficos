@@ -3,7 +3,7 @@
   O projeto consiste no deployment de uma aplicação WordPress dentro de um ambiente LoadBalance com Auto Scaling e banco de dados MySql RDS.
   
 ## Intâncias e ambiente linux/docker
-Cada intância é inicializada a partir de uma AMI pré configurada.
+Cada intância é inicializada a partir de uma AMI pré-configurada.
 - **tipo da instância:** t2.micro: 1 cpu, 1gb ram, 8gb gp3 ssd
 - **user_data da instância:**
 ```shell
@@ -86,9 +86,9 @@ A VPC possui dois ranges de CIDR diferentes
 10.1.0.0/24: subnets privadas
 
 
-O VPC foi criado  com duas subnets privadas e duas subnets públicas, uma em cada Zona de Disponibilidade.  
-- Foi criado e associado um Internet Gateway à rota publica para liberar comunicação com a Internet
-- Foi criado um NAT Gateway com um Elastic IP alocado, e associado á rota privada, associando também a uma subnet publica a fim de garantir tráfego de Internet às subnets privadas.
+O VPC foi criado com duas subnets privadas e duas subnets públicas, uma em cada Zona de Disponibilidade.  
+- Foi criado e associado um Internet Gateway à rota pública para liberar comunicação com a Internet
+- Foi criado um NAT Gateway com um Elastic IP alocado, e associado a rota privada, associando também a uma subnet publica a fim de garantir tráfego de Internet às subnets privadas.
 
 
 Em Route tables:
@@ -118,7 +118,7 @@ Configuração do banco de dados MySql:
 
 ## Load Balance e Auto Scaling
 
-Como cada instância contendo o serviço WordPress possui um conecção privada, foi então criado um Load Balance para assim fazer a conecção com a Internet. O tipo utilizado foi o Aplication Load Balance, focado em aplicações viradas para a internet. Também utiliza um target group para verificar a integridade da conecção com a internet, o protocolo utilizado foi o HTTP na porta 80.
+Como cada instância contendo o serviço WordPress possui uma conexão privada, foi então criado um Load Balance para assim fazer a conexão com a Internet. O tipo utilizado foi o Aplication Load Balance, focado em aplicações viradas para a internet. Também utiliza um target group para verificar a integridade da conexão com a internet, o protocolo utilizado foi o HTTP na porta 80.
 
 Availability Zones:
 - us-east-1b
